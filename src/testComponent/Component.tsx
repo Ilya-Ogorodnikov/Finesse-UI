@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import cls from './Component.module.scss';
 
 interface IconProps {
-  className?: string;
+  // className?: string;
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 export const Icon: FC<IconProps> = (props) => {
@@ -10,7 +10,7 @@ export const Icon: FC<IconProps> = (props) => {
 
   return (
     <div className={cls.check}>
-      <Svg className={''} />
+      <Svg className="" />
     </div>
   );
 };
