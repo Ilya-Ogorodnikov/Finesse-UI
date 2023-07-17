@@ -20,14 +20,6 @@ export const generateBuildPlugins = (options: IBaseConfigOptions): Configuration
     }),
     new ProgressPlugin(),
     isDev && new ReactRefreshWebpackPlugin(),
-    new ForkTsCheckerWebpackPlugin({
-      typescript: {
-        diagnosticOptions: {
-          semantic: true,
-          syntactic: true,
-        },
-        mode: 'write-references',
-      },
-    }),
+    new ForkTsCheckerWebpackPlugin(),
   ].filter(Boolean);
 };
