@@ -10,7 +10,8 @@
     "start": "webpack serve --config config/webpack/webpack.config.ts --env port=3200",
     "build:prod": "webpack --config config/webpack/webpack.config.ts --env mode=production",
     "build:dev": "webpack --config config/webpack/webpack.config.ts --env mode=development",
-    "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
+    "prettier": "prettier --write '*.{js,jsx,ts,tsx}'",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
@@ -30,6 +31,8 @@
     "css-minimizer-webpack-plugin": "^5.0.1",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
     "html-webpack-plugin": "^5.5.3",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss": "^8.4.26",
     "postcss-loader": "^7.3.3",
@@ -49,5 +52,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,css,md}": "prettier --write '*.{js,jsx,ts,tsx}'"
   }
 }
