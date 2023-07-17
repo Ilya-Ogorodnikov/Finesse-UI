@@ -21,16 +21,11 @@ export const createCssLoader = (isDevMode: IBaseConfigOptions['isDev']) => ({
           plugins: [
             [
               'autoprefixer', {
-                overrideBrowserslist: ['> 0.25%', 'last 4 versions'],
+                overrideBrowserslist: ['> 0.2%', 'last 4 versions'],
                 grid: true,
                 flexbox: true,
               },
             ],
-            // [
-            //   'cssnano', {
-            //     preset: 'default',
-            //   },
-            // ],
           ],
           sourceMap: true
         } 

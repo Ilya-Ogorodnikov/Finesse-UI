@@ -1,6 +1,7 @@
 import { Configuration } from "webpack";
 import { IBaseConfigOptions } from "../../types";
 import { createCssLoader } from './createCssLoader';
+import { createBabelLoader } from './createBabelLoader';
 
 export const generateBuildLoaders = (options: IBaseConfigOptions): Configuration["module"] => {
   const { isDev } = options;
@@ -22,14 +23,11 @@ export const generateBuildLoaders = (options: IBaseConfigOptions): Configuration
     type: "asset/resource",
   };
 
-  const TSLoader = {
-    test: /\.tsx?$/,
-    use: "ts-loader",
-    exclude: /node_modules/,
-  };
+  const codeBabelLoader = createBabelLoader({...options, isTsx: false });
 
+  const tsxBabelLoader = createBabelLoader({...options, isTsx: true });
 
   return {
-    rules: [svgLoader, cssLoader, imageLoader, fileLoader, TSLoader],
+    rules: [svgLoader, codeBabelLoader, tsxBabelLoader, cssLoader, imageLoader, fileLoader],
   };
 };

@@ -23,7 +23,7 @@ export const generateBaseConfig: generateBaseConfigType = (options) => {
     },
     entry: pathResolver('src', 'index.tsx'),
     output: generateBuildOutput(),
-    plugins: generateBuildPlugins(),
+    plugins: generateBuildPlugins(options),
     module: generateBuildLoaders(options),
     resolve: generateBuildResolve(),
     devServer: generateDevServer(options),
