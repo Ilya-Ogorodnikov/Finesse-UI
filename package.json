@@ -9,7 +9,8 @@
     "build": "webpack --config config/webpack/webpack.config.ts --env mode=development",
     "start": "webpack serve --config config/webpack/webpack.config.ts --env port=3200",
     "build:prod": "webpack --config config/webpack/webpack.config.ts --env mode=production",
-    "build:dev": "webpack --config config/webpack/webpack.config.ts --env mode=development"
+    "build:dev": "webpack --config config/webpack/webpack.config.ts --env mode=development",
+    "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
@@ -33,6 +34,7 @@
     "postcss": "^8.4.26",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.0.0",
+    "prettier": "^3.0.0",
     "react-refresh": "^0.14.0",
     "sass": "^1.63.6",
     "sass-loader": "^13.3.2",
