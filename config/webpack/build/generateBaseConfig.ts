@@ -1,11 +1,11 @@
-import { Configuration } from 'webpack'
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
+import { Configuration } from 'webpack';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { generateBuildLoaders } from './generateBuildLoaders';
 import { generateBuildOutput } from './generateBuildOutput';
 import { generateBuildPlugins } from './generateBuildPlugins';
 import { generateBuildResolve } from './generateBuildResolve';
 import { generateDevServer } from './generateDevServer';
-import { IBaseConfigOptions } from '../../types'
+import { IBaseConfigOptions } from '../../types';
 import { pathResolver } from '../../utils';
 
 type generateBaseConfigType = (options: IBaseConfigOptions) => Configuration;
@@ -16,10 +16,7 @@ export const generateBaseConfig: generateBaseConfigType = (options) => {
   return {
     mode,
     optimization: {
-      minimizer: [
-        `...`,
-        !isDev && new CssMinimizerPlugin()
-      ]
+      minimizer: [`...`, !isDev && new CssMinimizerPlugin()],
     },
     entry: pathResolver('src', 'index.tsx'),
     output: generateBuildOutput(),
@@ -29,5 +26,5 @@ export const generateBaseConfig: generateBaseConfigType = (options) => {
     devServer: generateDevServer(options),
     devtool: isDev && 'source-map',
     cache: isDev,
-  }
-}
+  };
+};

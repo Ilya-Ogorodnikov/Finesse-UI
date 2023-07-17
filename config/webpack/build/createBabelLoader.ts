@@ -1,4 +1,4 @@
-import { IBaseConfigOptions } from "config/types";
+import { IBaseConfigOptions } from 'config/types';
 
 interface ICreateBabelLoader extends IBaseConfigOptions {
   isTsx?: boolean;
@@ -16,21 +16,23 @@ export const createBabelLoader = (options: ICreateBabelLoader) => {
           '@babel/preset-env',
           '@babel/preset-typescript',
           [
-            '@babel/preset-react', {
-              runtime: "automatic"
-            }
-          ]
+            '@babel/preset-react',
+            {
+              runtime: 'automatic',
+            },
+          ],
         ],
         plugins: [
           [
-            '@babel/plugin-transform-typescript', {
-              isTsx
-            }
+            '@babel/plugin-transform-typescript',
+            {
+              isTsx,
+            },
           ],
           '@babel/plugin-transform-runtime',
-          isDev && require.resolve('react-refresh/babel')
-        ].filter(Boolean)
-      }
-    }
-  }
+          isDev && require.resolve('react-refresh/babel'),
+        ].filter(Boolean),
+      },
+    },
+  };
 };

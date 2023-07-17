@@ -1,5 +1,5 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { IBaseConfigOptions } from "../../types";
+import { IBaseConfigOptions } from '../../types';
 
 export const createCssLoader = (isDevMode: IBaseConfigOptions['isDev']) => ({
   test: /\.s[ac]ss$/i,
@@ -14,22 +14,23 @@ export const createCssLoader = (isDevMode: IBaseConfigOptions['isDev']) => ({
         },
       },
     },
-    !isDevMode &&  {
+    !isDevMode && {
       loader: 'postcss-loader',
       options: {
         postcssOptions: {
           plugins: [
             [
-              'autoprefixer', {
+              'autoprefixer',
+              {
                 overrideBrowserslist: ['> 0.2%', 'last 4 versions'],
                 grid: true,
                 flexbox: true,
               },
             ],
           ],
-          sourceMap: true
-        } 
-      }
+          sourceMap: true,
+        },
+      },
     },
     'sass-loader',
   ].filter(Boolean),

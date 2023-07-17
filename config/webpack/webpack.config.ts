@@ -3,7 +3,6 @@ import { Configuration } from 'webpack';
 import { IENVList } from '../types';
 
 export default (env: IENVList): Configuration => {
-
   const mode = env.mode || 'development';
   const PORT = env.port || 3200;
 
@@ -14,4 +13,4 @@ export default (env: IENVList): Configuration => {
     isDev,
     port: PORT,
   });
-}
+};

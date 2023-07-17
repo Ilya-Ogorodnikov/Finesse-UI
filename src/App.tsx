@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
-import cls from './style.module.scss'
-import { Icon } from "./testComponent/Component";
-import TestSvg from './resource/icons/logo.svg'
+import { FC, useState } from 'react';
+import cls from './style.module.scss';
+import { Icon } from './testComponent/Component';
+import TestSvg from './resource/icons/logo.svg';
 
 export const App: FC = () => {
   const [counter, setCounter] = useState(0);
@@ -11,8 +11,13 @@ export const App: FC = () => {
       <div className={cls.hello}>
         <p>{counter}</p>
         <div>
-          <button onClick={() => setCounter(prev => prev + 1)}>increment</button>
-          <button onClick={() => setCounter(prev => prev - 1)}>decrement</button>
+          <button
+            onClick={() => setCounter((prev) => prev + 1)}
+            type="button"
+          >
+            increment
+          </button>
+          <button onClick={() => setCounter((prev) => prev - 1)}>decrement</button>
         </div>
       </div>
 
@@ -20,5 +25,5 @@ export const App: FC = () => {
         <Icon Svg={TestSvg} />
       </div>
     </>
-  )
-}
+  );
+};

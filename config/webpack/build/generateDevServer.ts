@@ -13,9 +13,9 @@ export const generateDevServer = (options: IBaseConfigOptions): ConfigurationDev
       overlay: {
         errors: true,
         warnings: false,
-      }
+      },
     },
     allowedHosts: 'all',
-    compress: true
-  }
-}
+    compress: true,
+  };
+};
