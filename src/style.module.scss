@@ -1,6 +1,12 @@
 .hello {
-  background-color: red;
+  top: 50%;
+
   display: grid;
+  justify-content: center;
+
+  transform: translate(-50%, -50%);
+
+  font-size: large;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
 }

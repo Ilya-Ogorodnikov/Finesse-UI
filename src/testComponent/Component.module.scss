@@ -1,8 +1,7 @@
 .check {
   display: flex;
-  background-color: green;
-  transition: all .5s;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black);
 
+  user-select: none;
+
+  transition: all 0.5s;
 }
