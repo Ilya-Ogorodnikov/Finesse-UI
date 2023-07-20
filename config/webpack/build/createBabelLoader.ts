@@ -6,9 +6,10 @@ interface ICreateBabelLoader extends IBaseConfigOptions {
 
 export const createBabelLoader = (options: ICreateBabelLoader) => {
   const { isDev, isTsx } = options;
+  // настройка babel для работы с ts и jsx
   return {
     test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
-    exclude: /node_modules/,
+    exclude: /node_modules/, // какие каталоги исключаем
     use: {
       loader: 'babel-loader',
       options: {

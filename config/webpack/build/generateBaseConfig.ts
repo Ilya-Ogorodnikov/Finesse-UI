@@ -14,17 +14,17 @@ export const generateBaseConfig: generateBaseConfigType = (options) => {
   const { mode, isDev } = options;
 
   return {
-    mode,
+    mode, // режим приложения
     optimization: {
-      minimizer: [`...`, !isDev && new CssMinimizerPlugin()],
+      minimizer: [`...`, !isDev && new CssMinimizerPlugin()], // для prod-режима сжимаем весь css в одну строку (под капотом использует cssnano)
     },
-    entry: pathResolver('src', 'index.tsx'),
-    output: generateBuildOutput(),
-    plugins: generateBuildPlugins(options),
-    module: generateBuildLoaders(options),
-    resolve: generateBuildResolve(),
-    devServer: generateDevServer(options),
-    devtool: isDev && 'source-map',
-    cache: isDev,
+    entry: pathResolver('src', 'index.tsx'), // точка входа в приложение
+    output: generateBuildOutput(), // точка выхода приложения
+    plugins: generateBuildPlugins(options), // настройка плагинов
+    module: generateBuildLoaders(options), // настройка лоадеров
+    resolve: generateBuildResolve(), // настройка резолвера
+    devServer: generateDevServer(options), // настройка dev-сервера
+    devtool: isDev && 'source-map', // в dev-режиме используем source-map для более простой отладки
+    cache: isDev, // для повышения скорости сборки в dev-режиме кешируем файлы
   };
 };

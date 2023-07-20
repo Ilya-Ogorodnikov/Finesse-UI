@@ -3,6 +3,7 @@ import { IBaseConfigOptions } from '../../types';
 import { createCssLoader } from './createCssLoader';
 import { createBabelLoader } from './createBabelLoader';
 
+// Лоадеры для обработки различных типов файлов
 export const generateBuildLoaders = (options: IBaseConfigOptions): Configuration['module'] => {
   const { isDev } = options;
 
@@ -23,6 +24,9 @@ export const generateBuildLoaders = (options: IBaseConfigOptions): Configuration
     type: 'asset/resource',
   };
 
+  // после отказа от TS-лоадера и вынесения type-чекинга в отдельный процесс,
+  // для компиляции и обработки jsx и обычного кода используется babel-лоадер,
+  // но с разной конфигурацией
   const codeBabelLoader = createBabelLoader({ ...options, isTsx: false });
 
   const tsxBabelLoader = createBabelLoader({ ...options, isTsx: true });
