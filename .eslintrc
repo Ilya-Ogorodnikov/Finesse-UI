@@ -60,62 +60,72 @@
     // TYPESCRIPT
     "@typescript-eslint/ban-ts-comment": "off", // разрешаем использование ts-директив (@ts-ignore и т.д)
     "@typescript-eslint/explicit-module-boundary-types": "off", // не требуем явного возвращаемого значения из функции или класса, а также тип у аругментов функции
+    "@typescript-eslint/naming-convention": "off", // отключаем соглашение по неймингу переменных
+    "@typescript-eslint/no-explicit-any": "warn", // подсвечиваем места, в которых используется тип any
     "@typescript-eslint/no-var-requires": "error", // запрещаем использовать require вместо импортов
     "@typescript-eslint/no-redeclare": "error", // запрещаем повторное объявление переменной
-    "@typescript-eslint/no-explicit-any": "warn", // подсвечиваем места, в которых используется тип any
-    "@typescript-eslint/naming-convention": "off", // отключаем соглашение по неймингу переменных
     "@typescript-eslint/no-unused-vars": "error", // запрещаем неиспользованные переменные
 
     // REACT
     "react/jsx-no-useless-fragment": "off", // отключаем ненужные фрагменты 
     "react/jsx-props-no-spreading": "off", // отключаем запрет использовать spread-оператор для пропсов
-    "react/jsx-curly-brace-presence": "error", // запрещаем лишнии или ненужные скобки в jsx-разметке
+    "react/react-in-jsx-scope": "off", // отключаем обязательный импорт самого React в файлах с ним (с 17+ версии реакта нет необходимости его импортить)
+    "react/require-default-props": "off", // отключаем дефолтные пропсы для необязательных пропсов
     "react/jsx-no-bind": "warn", // подсвечиваем места, где в пропсах напрямую используется метод bind или стрелочная функция
+    "react-hooks/exhaustive-deps": "warn", // подсвечиваем массив зависимостей в хуках, если пропущено какое-то значение
+    "react/prefer-stateless-function": "warn", // подсвечиваем использование классовых компонентов
+    "react/no-unused-prop-types": "warn", // подсвечиваем, если определенный типизированный пропс неиспользуется
+    "react/jsx-curly-brace-presence": "error", // запрещаем лишнии или ненужные скобки в jsx-разметке
     "react/jsx-key": "error", // подсвечиваем отсутствие ключей при рендеринге коллекций и массивов
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }], // разрешаем отсутствие импортов только у файлов с расширением tsx
     "react/jsx-no-comment-textnodes": "error", // запрещаем для комментов в jsx использовать обычный синтаксис комментов
     "react/jsx-no-target-blank": "error", // запрещаем target="_blank" атрибут без rel="noreferrer"
     "react/jsx-no-undef": "error", // запретить неиспользуемые переменные в jsx
     "react/jsx-pascal-case": "error", // запретить стиль названий компонентов, отличный от pascal-case
-    "jsx-quotes": ["error", "prefer-double"], // в jsx разрешаем только двойные кавычки
-    "react/react-in-jsx-scope": "off", // отключаем обязательный импорт самого React в файлах с ним (с 17+ версии реакта нет необходимости его импортить)
-    "react/require-default-props": "off", // отключаем дефолтные пропсы для необязательных пропсов
     "react-hooks/rules-of-hooks": "error", // подсвечиваем ошибки при написании хуков
-    "react-hooks/exhaustive-deps": "warn", // подсвечиваем массив зависимостей в хуках, если пропущено какое-то значение
     "react/no-did-update-set-state": "error", // запрещаем менять стейт в методе componentDidUpdate
     "react/no-unknown-property": "error", // запрещаем неизвестные DOM-свойства
     "react/no-array-index-key": "error", // запрещаем использовать index в качестве ключа при рендере массива
     "react/no-unused-state": "error", // запрещаем неиспользуемый стейт
     "react/style-prop-object": "error", // пропс style может быть только объектом
     "react/void-dom-elements-no-children": "error", // запрещаем передавать children в пустые dom-элементы (<img/>, <br/> и т.д)
-    "react/prefer-stateless-function": "warn", // подсвечиваем использование классовых компонентов
     "react/no-danger-with-children": "error", // запрещаем одновременно использовать children и dangerouslySetInnerHTML
     "react/no-direct-mutation-state": "error", // запрещаем мутировать стейт напрямую
     "react/require-render-return": "error", // запрещаем не использовать return при рендере компонента
-    "react/no-unused-prop-types": "warn", // подсвечиваем, если определенный типизированный пропс неиспользуется
+    "jsx-quotes": ["error", "prefer-double"], // в jsx разрешаем только двойные кавычки
     
     // COMMON
+    "import/no-extraneous-dependencies": "off", // отключаем запрет импорта модулей, которые не объявлены в зависимостях в файле package.json
+    "import/prefer-default-export": "off", // отключаем приоритет дефолтных импортов
+    "import/no-duplicates": "off", // отключаем подсветку разных импортов из одного и того же файла
+    "no-param-reassign": "off", // отключаем наблюдение за переназначением параметра функции
+    "no-unused-vars": "off", // отключаем запрет неиспользуемых переменных
+    "linebreak-style": "off", // отключаем стиль разрыва строки
+    "prefer-template": "warn", // подсвечиваем места, где можно использовать шаблоныне строки вместо конкатенации строк
+    "arrow-body-style": "warn", // подсвечиваем нехватку скобок у струлочной функции
+    "no-extra-label": "warn", // подсвечиваем ненужные лейблы в циклах
+    "no-fallthrough": "warn", // подсвечиваем места в кейсах конструкции switch/case, в которых не используются операторы прерывания (break, return и т.д)
+    "no-func-assign": "warn", // подсвечиваем переприсваивание объявленной функции
+    "no-extra-bind": "warn", // подсвечиваем ненужные вызовы метода bind
+    "default-case": "warn", // подсвечиваем отсутствие операторы default в конструкции switch/case
+    "no-console": "warn", // подсвечиваем наличие логов консоли
+    "no-control-regex": "warn", // подсвечиваем управляющие символы в регулярных выражениях
+    "no-labels": ["warn", { "allowLoop": true, "allowSwitch": false }], // подсвечиваем места, где используются метки
+    "no-multi-str": "warn", // подсвечиваем мультистрочные строки
     "quotes": ["error", "single"], // запрещаем в обычном коде использовать любые кавычки, отличные от одинарных
     "semi": ["error", "always"], // запрещаем не ставить точка с запятой в конце строки
     "import/first": "error", // запрещаем использовать импорты после неимпортовых выражений
-    "import/prefer-default-export": "off", // отключаем приоритет дефолтных импортов
     "no-duplicate-imports": "error", // запрещаем дублирование импортов
-    "import/no-duplicates": "off", // отключаем подсветку разных импортов из одного и того же файла
     "import/no-anonymous-default-export": "error", // запрещаем при дефолтном экспорте не указывать имя переменной
-    "import/no-extraneous-dependencies": "off", // отключаем запрет импорта модулей, которые не объявлены в зависимостях в файле package.json
-    "no-console": "warn", // подсвечиваем наличие логов консоли
     "no-debugger": "error", // запрещаем оствалять в коде дебаггер
     "prefer-const": ["error", { "destructuring": "all" }], // запрещаем оставлять переменные, объявленные через let и не менябщие свое значение после объявления
-    "no-param-reassign": "off", // отключаем наблюдение за переназначением параметра функции
     "array-callback-return": "error", // запрещаем не писать return в методах массива
     "object-shorthand": "error", // запрещаем не использовать сокращенный синтаксис в методах объекта
     "quote-props": ["error", "as-needed"], // запрещаем не заключать в кавычки требуемы свойства объекта (lorem: true, "lorem-ipsum": true)
-    "prefer-template": "warn", // подсвечиваем места, где можно использовать шаблоныне строки вместо конкатенации строк
     "no-useless-escape": "error", // запрещаем использовать ненужные символы при написании различных значений
     "prefer-rest-params": "error", // запрещаем в функциях использовать arguments, вместо него используем rest-оператор
     "prefer-spread": "error", // запрещаем использовать apply вместо spread для работы с переменным массивом или создании нового
     "prefer-arrow-callback": "error", // выдаем ошибку в любом месте, где обычную функцию можно заменить стрелочной без изменения результата
-    "arrow-body-style": "warn", // подсвечиваем нехватку скобок у струлочной функции
     "no-dupe-class-members": "error", // запрещаем повторяющиеся методы класса
     "no-unneeded-ternary": "error", // запрещаем тернарные операторы. если есть более простая альтернатива
     "no-mixed-operators": "error", // запрещаем не раставлять скобки в логических выражениях
@@ -123,43 +133,33 @@
     "no-undef": "error", // запрещаем глобальные переменные, если они не объявлены в правиле global
     "no-var": "error", // запрещаем использовать var
     "eqeqeq": ["error", "smart"], // зарпрещаем использовать нестрогое сравнение
-    "no-unused-vars": "off", // отключаем запрет неиспользуемых переменных
     "no-unused-expressions": "error", // запрещаем неиспользуемые выражения
-    "linebreak-style": "off", // отключаем стиль разрыва строки
-    "default-case": "warn", // подсвечиваем отсутствие операторы default в конструкции switch/case
     "new-parens": "error", // выдаем ошибку при использовании скобок у вызова конструктора без аргументов
     "no-caller": "error", // запрещаем использование arguments.caller или arguments.callee
     "no-cond-assign": "error", // запррещаем операторы присваивания в условных выражениях
     "no-const-assign": "error", // запрещаем переназначение константных переменных
-    "no-control-regex": "warn", // подсвечиваем управляющие символы в регулярных выражениях
     "no-delete-var": "error", // запрещаем удаление переменных
-    "no-dupe-args": "error",
-    "no-dupe-keys": "error",
-    "no-duplicate-case": "error",
-    "no-empty-pattern": "error",
-    "no-ex-assign": "error",
-    "no-extend-native": "error",
-    "no-extra-bind": "warn",
-    "no-extra-label": "warn",
-    "no-label-var": "error",
-    "no-labels": ["warn", { "allowLoop": true, "allowSwitch": false }],
-    "no-fallthrough": "warn",
-    "no-func-assign": "warn",
-    "no-implied-eval": "error",
-    "no-invalid-regexp": "error",
-    "no-lone-blocks": "error",
-    "no-multi-str": "warn",
-    "no-global-assign": "error",
-    "no-unsafe-negation": "error",
-    "no-new-func": "error",
-    "no-octal": "error",
-    "no-octal-escape": "error",
-    "no-restricted-syntax": "error",
-    "no-script-url": "error",
-    "no-shadow-restricted-names": "error",
-    "no-unreachable": "error",
-    "no-use-before-define": "error",
-    "no-useless-concat": "error",
-    "no-with": "error"
+    "no-dupe-args": "error", // запрещаем повторяющиеся аргументы в определениях функций
+    "no-dupe-keys": "error", // запрещаем овторяющиеся ключи в литералах объектов
+    "no-duplicate-case": "error", // запрещаем повторяющиеся кейсы в конструкции switch/case
+    "no-empty-pattern": "error", // запрещаем пустые шаблоны деструктурирования
+    "no-ex-assign": "error", // запрещаем переопределение переменных в блоке catch
+    "no-extend-native": "error", // запрещаем расширение нативных объектов
+    "no-label-var": "error", // запрещаем метки, название которых совпадает с названием переменных
+    "no-implied-eval": "error", // запрещаем использовать конструкции наподобие функции eval()
+    "no-invalid-regexp": "error", // запрещаем недопустимые строки регулярных выражений в конструкторах RegExp
+    "no-lone-blocks": "error", // запрещаем ненужные вложенные блоки
+    "no-global-assign": "error", // запрещаем присваивание нативным объектам или глобальным переменным
+    "no-unsafe-negation": "error", // запрещаем отрицание левого операнда операторов отношения
+    "no-new-func": "error", // запрещаем создание функций через конструктор new Function()
+    "no-octal": "error", // запрещаем восьмиричные литералы
+    "no-octal-escape": "error", // запрещаем восьмиричные последовательности в строковых литералах
+    "no-restricted-syntax": "error", // запрещаем специфический синтаксис
+    "no-script-url": "error", // запрещаем скрипт в ссылках
+    "no-shadow-restricted-names": "error", // запрещаем использовать глобальные конструкции в качестве имен
+    "no-unreachable": "error", // запрещаем недостижимый код после операторов return, throw, continue и break
+    "no-use-before-define": "error", // запрещаем использование переменных до их определения
+    "no-useless-concat": "error", // запрещаем ненужную конкатенацию литералов или шаблонных строк
+    "no-with": "error" // запрещаем использовать оператор with
   }
 }
