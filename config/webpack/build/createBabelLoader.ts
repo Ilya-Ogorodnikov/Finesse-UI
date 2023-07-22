@@ -30,13 +30,6 @@ export const createBabelLoader = (options: ICreateBabelLoader) => {
           ],
         ],
         plugins: [
-          // [
-          //   '@babel/plugin-transform-typescript',
-          //   {
-          //     isTsx,
-          //   },
-          // ],
-
           // смотрит код на наличие ES6 фич и если они есть, трансформирует код так,
           // чтобы эти фичи брались не из глобального скоупа, а импортировались из babel-runtime
           '@babel/plugin-transform-runtime',
